@@ -12,6 +12,7 @@ namespace SalesWebMvc.Data
         public SalesWebMvcContext (DbContextOptions<SalesWebMvcContext> options)
             : base(options)
         {
+            Database.Migrate();
         }
 
         public DbSet<Department> Department { get; set; } = default!;

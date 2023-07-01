@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SalesWebMvc.Data;
 
@@ -10,9 +11,10 @@ using SalesWebMvc.Data;
 namespace SalesWebMvc.Migrations
 {
     [DbContext(typeof(SalesWebMvcContext))]
-    partial class SalesWebMvcContextModelSnapshot : ModelSnapshot
+    [Migration("20230701230508_Seller_Seed")]
+    partial class Seller_Seed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -84,6 +86,17 @@ namespace SalesWebMvc.Migrations
                     b.HasIndex("DepartmentId");
 
                     b.ToTable("Seller");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            BaseSalary = 1000.0,
+                            BirthDate = new DateTime(2000, 5, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DepartmentId = 1,
+                            Email = "joaopedrobdmgbr@gmail.com",
+                            Name = "João"
+                        });
                 });
 
             modelBuilder.Entity("SalesWebMvc.Models.SalesRecord", b =>
