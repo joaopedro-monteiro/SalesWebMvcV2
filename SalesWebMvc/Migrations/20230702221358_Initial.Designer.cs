@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SalesWebMvc.Data;
 
@@ -10,9 +11,10 @@ using SalesWebMvc.Data;
 namespace SalesWebMvc.Migrations
 {
     [DbContext(typeof(SalesWebMvcContext))]
-    partial class SalesWebMvcContextModelSnapshot : ModelSnapshot
+    [Migration("20230702221358_Initial")]
+    partial class Initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -31,13 +33,6 @@ namespace SalesWebMvc.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Department");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "João"
-                        });
                 });
 
             modelBuilder.Entity("SalesWebMvc.Models.SalesRecord", b =>
@@ -63,16 +58,6 @@ namespace SalesWebMvc.Migrations
                     b.HasIndex("SellerId");
 
                     b.ToTable("SalesRecord");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Amount = 100.0,
-                            Date = new DateTime(2023, 6, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            SellerId = 1,
-                            Status = 1
-                        });
                 });
 
             modelBuilder.Entity("SalesWebMvc.Models.Seller", b =>
@@ -101,17 +86,6 @@ namespace SalesWebMvc.Migrations
                     b.HasIndex("DepartmentId");
 
                     b.ToTable("Seller");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            BaseSalary = 100.0,
-                            BirthDate = new DateTime(2000, 5, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DepartmentId = 1,
-                            Email = "joaopedrobdmg@gmail.com",
-                            Name = "João"
-                        });
                 });
 
             modelBuilder.Entity("SalesWebMvc.Models.SalesRecord", b =>

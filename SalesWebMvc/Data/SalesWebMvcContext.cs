@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using SalesWebMvc.Models;
+using SalesWebMvc.Models.Enums;
 
 namespace SalesWebMvc.Data
 {
@@ -12,7 +9,6 @@ namespace SalesWebMvc.Data
         public SalesWebMvcContext (DbContextOptions<SalesWebMvcContext> options)
             : base(options)
         {
-            Database.Migrate();
         }
 
         public DbSet<Department> Department { get; set; } = default!;
