@@ -1,0 +1,37 @@
+﻿@model SalesWebMvc.Models.Seller
+
+<div>
+    <h4>Seller</h4>
+    <hr />
+    <dl>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+            <span>:</span>
+            @Html.DisplayFor(model => model.Name)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+            <span>:</span>
+            @Html.DisplayFor(model => model.Email)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthDate)
+            <span>:</span>
+            @Html.DisplayFor(model => model.BirthDate)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.BaseSalary)
+            <span>:</span>
+            @Html.DisplayFor(model => model.BaseSalary)
+        </dt>
+        <dt>
+            @Html.DisplayNameFor(model => model.Department)
+            <span>:</span>
+            @Html.DisplayFor(model => model.Department.Name)
+        </dt>
+    </dl>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-default">Edit</a>
+        <a asp-action="Index">Back to List</a>
+    </div>
+</div>
