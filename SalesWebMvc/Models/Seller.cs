@@ -26,6 +26,8 @@ namespace SalesWebMvc.Models
         [Required(ErrorMessage = "'{0}' é obrigatório.")]
         [Range(100.0, 50000.0, ErrorMessage = "O salário deve estar entre {1} e {2}.")]
         [DisplayName("Base salary")]
+        //[DisplayFormat(DataFormatString = "{0:F2}")]
+        [DisplayFormat(DataFormatString = "{0:C0}")]
         public double BaseSalary { get; set; }
 
         [DisplayName("Category")]
