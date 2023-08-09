@@ -23,5 +23,10 @@ namespace SalesWebMvc.Models
             Status = status;
             Seller = seller;
         }
+
+        internal object Include(Func<object, object> value)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
