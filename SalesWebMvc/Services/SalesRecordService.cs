@@ -33,22 +33,27 @@ namespace SalesWebMvc.Services
         }
         public List<IGrouping<Department, SalesRecord>> FindByDateGrouping(DateTime? minDate, DateTime? maxDate)
         {
-            var result = from obj in _context.SalesRecord select obj;
+            var query = from obj in _context.SalesRecord select obj;
             if (minDate.HasValue)
             {
-                result = result.Where(x => x.Date >= minDate.Value);
+                query = query.Where(x => x.Date >= minDate.Value);
             }
 
             if (maxDate.HasValue)
             {
-                result = result.Where(x => x.Date <= maxDate.Value);
+                query = query.Where(x => x.Date <= maxDate.Value);
             }
 
-            return result
+            var intermediateResult = query
                 .Include(x => x.Seller.Department)
                 .OrderByDescending(x => x.Date)
+                .ToList();
+
+            var finalResult = intermediateResult
                 .GroupBy(x => x.Seller.Department)
                 .ToList();
+
+            return finalResult;
         }
     }
 }
